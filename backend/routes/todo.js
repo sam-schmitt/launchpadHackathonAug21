@@ -29,6 +29,32 @@ router.get("/allPosts", async (req, res) => {
 	}
 });
 
+router.get("/notDonePosts", async (req, res) => {
+	try {
+		let allPosts = await ToDo.find({ done: false });
+		if (allPosts) {
+			res.json(allPosts);
+		} else {
+			res.json("Error finding all posts");
+		}
+	} catch (err) {
+		res.json("err");
+	}
+});
+
+router.get("/donePosts", async (req, res) => {
+	try {
+		let allPosts = await ToDo.find({ done: true });
+		if (allPosts) {
+			res.json(allPosts);
+		} else {
+			res.json("Error finding all posts");
+		}
+	} catch (err) {
+		res.json("err");
+	}
+});
+
 router.post("/completeItem", async (req, res) => {
 	const { itemID } = req.body;
 	try {
