@@ -1,10 +1,11 @@
 import React from "react";
 
-export default function Todo({ text, handleClick }) {
+export default function Todo({ text, handleClick, deleteClick }) {
 	return (
-		<div className="todo">
+		<div className='todo'>
 			<p>{text}</p>
-			<button onClick={handleClick}>Done</button>
+			{handleClick && <button onClick={handleClick}>Done</button>}
+			{deleteClick && <button onClick={deleteClick}>Delete</button>}
 		</div>
 	);
 }
