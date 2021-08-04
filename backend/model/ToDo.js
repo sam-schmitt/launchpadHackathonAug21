@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ExampleSchema = new mongoose.Schema({
+const ToDoSchema = new mongoose.Schema({
 	item: {
 		type: String,
 	},
@@ -9,4 +9,4 @@ const ExampleSchema = new mongoose.Schema({
 	},
 });
 
-module.exports = mongoose.model("example", ExampleSchema);
+module.exports = mongoose.model("todo", ToDoSchema);

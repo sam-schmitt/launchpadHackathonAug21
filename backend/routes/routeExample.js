@@ -3,6 +3,7 @@ const router = express.Router();
 const ModelExample = require("../model/modelExample");
 
 router.post("/post", async (req, res) => {
+	console.log(req.body);
 	const { string, object, bool, num, array } = req.body;
 	try {
 		example = new ModelExample({
@@ -13,14 +14,10 @@ router.post("/post", async (req, res) => {
 			array,
 		});
 
-		await example.save().then(
-			res.status(200).json({
-				msg: "example post successful",
-			})
-		);
+		await example.save();
+		res.json("example post successful");
 	} catch (err) {
-		console.log(err);
-		res.status(500).send("Error in Saving");
+		res.json("err");
 	}
 });
 
@@ -34,8 +31,7 @@ router.get("/allPosts", async (req, res) => {
 			res.json("Error finding all posts");
 		}
 	} catch (err) {
-		console.log(err);
-		res.status(500).send("Error in finding all posts");
+		res.json("err");
 	}
 });
 
