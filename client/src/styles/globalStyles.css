@@ -1,7 +1,10 @@
 * {
 	box-sizing: border-box;
 }
-
+h1 {
+	text-align: center;
+	font-family: "Lobster", cursive;
+}
 .header {
 	background-color: #170f11;
 	height: 6rem;
@@ -28,33 +31,48 @@
 	align-items: center;
 	justify-content: center;
 }
-.text-input-container {
-	padding-bottom: 1rem;
+
+.add-todo-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: clamp(15rem, 70%, 30rem);
+	padding: 0 0.75rem;
 }
-.text-input-container .todo-input {
-	width: 100%;
+
+.button {
+	padding: 0;
+	height: 100%;
+	background: #9dd1f1;
+}
+.button-wrapper {
+	height: 3.5rem;
+	margin-left: 0.35rem;
 }
 .todo-container {
 	padding: 0.75rem 1rem;
 
 	margin-left: auto;
 	margin-right: auto;
-	width: clamp(15rem, 70%, 40rem);
-	border-radius: 2rem;
+	margin: 1rem;
+	width: clamp(15rem, 70%, 30rem);
+	border-radius: 1rem;
 	background-color: rgb(221, 221, 221);
 }
 .todo {
 	background-color: rgb(255, 255, 255);
-	padding: 0.15rem 1rem;
+	padding: 0 0.5rem 0 1rem;
+	min-height: 1rem;
 	margin: 0.5rem 0;
-	border-radius: 1rem;
+	border-radius: 0.5rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	box-shadow: 2px 1px 17px -6px rgba(0, 0, 0, 0.4);
 }
-.todo p {
-	font-size: 1.4rem;
+p {
+	font-size: 1rem;
 	font-family: sans-serif;
 }
 
@@ -62,8 +80,10 @@
 	margin-left: auto;
 	margin-right: auto;
 }
-
-h1 {
+.text-center {
 	text-align: center;
-	font-family: sans-serif;
+}
+
+.no-bullet {
+	list-style-type: none;
 }

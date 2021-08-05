@@ -10,7 +10,7 @@ const bodyParser = require("body-parser");
 
 InitiateMongoServer();
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 const MONGOURI = process.env.MONGO;
 app.use(cors());
 

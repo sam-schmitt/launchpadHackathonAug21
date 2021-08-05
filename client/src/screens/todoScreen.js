@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Todo from "../components/todo";
-import TextField from "@material-ui/core/TextField";
+import { Button, TextField } from "@material-ui/core";
 import { useHistory } from "react-router";
-
+import AddIcon from "@material-ui/icons/Add";
 import todoApi from "../api/todo";
 
 export default function TodoScreen() {
@@ -39,10 +39,10 @@ export default function TodoScreen() {
 		getNotDone();
 	}, []);
 	return (
-		<div className='container'>
+		<div className="container">
 			<h1>Todo List</h1>
 
-			<div className='text-input-container'>
+			<div className="add-todo-container">
 				<TextField
 					label={"Add a todo"}
 					onChange={(e) => {
@@ -50,37 +50,62 @@ export default function TodoScreen() {
 					}}
 					value={todo}
 					variant={"filled"}
-					inputProps={{ className: "todo-input" }}
+					multiline={true}
+					className="text-input"
+					style={{ flex: 1 }}
 				/>
-				<button
-					onClick={() => {
-						addItem();
-					}}
-				>
-					<p>add</p>
-				</button>
+				<div className="button-wrapper">
+					<Button
+						variant="contained"
+						color="primary"
+						// className={classes.button}
+						startIcon={<AddIcon />}
+						className="button"
+						onClick={() => {
+							addItem();
+						}}
+					>
+						<p>add</p>
+					</Button>
+				</div>
 			</div>
-			<div className='todo-container'>
-				<div className='alignCenter'>
-					{items
-						.filter((item) => item._id)
-						.map(function (d, idx) {
-							return (
-								<li key={idx} className='noBullet'>
-									<Todo text={d.item} handleClick={() => completeItem(d._id)} />
-								</li>
-							);
-						})}
+			<div className="todo-container">
+				<div className="alignCenter">
+					{items.length !== 0 && (
+						<div>
+							{items
+								.filter((item) => item._id)
+								.map(function (d, idx) {
+									return (
+										<li key={idx} className="no-bullet">
+											<Todo
+												text={d.item}
+												handleClick={() => completeItem(d._id)}
+											/>
+										</li>
+									);
+								})}
+						</div>
+					)}
+					{!items.length && (
+						<div>
+							<p className="text-center">No Todo's</p>
+						</div>
+					)}
 				</div>
 			</div>
 
-			<button
+			<Button
+				className="button"
+				variant="contained"
+				color="default"
 				onClick={() => {
 					history.push("/finished");
 				}}
+				style={{ flex: 1 }}
 			>
 				<p>Done Items</p>
-			</button>
+			</Button>
 		</div>
 	);
 }
