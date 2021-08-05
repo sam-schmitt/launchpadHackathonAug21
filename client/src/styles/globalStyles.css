@@ -45,6 +45,11 @@ h1 {
 	height: 100%;
 	background: #9dd1f1;
 }
+.headerButton {
+	padding: 0;
+	height: 40%;
+	color: aliceblue;
+}
 .button-wrapper {
 	height: 3.5rem;
 	margin-left: 0.35rem;
