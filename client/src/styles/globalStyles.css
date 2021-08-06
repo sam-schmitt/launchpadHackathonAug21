@@ -13,8 +13,14 @@ h1 {
 	top: 0;
 	left: 0;
 	margin-bottom: 7rem;
+	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+}
+.header-logo {
+	position: absolute;
+	left: 0;
 }
 .app-container {
 	width: 100%;
