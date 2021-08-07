@@ -7,7 +7,7 @@ import { brown, green, red } from "@material-ui/core/colors";
 
 export default function Header() {
 	const history = useHistory();
-	const HeaderButton = withStyles((theme) => ({
+	const HeaderButton = withStyles(() => ({
 		root: {
 			color: "#fff",
 			backgroundColor: brown[900],

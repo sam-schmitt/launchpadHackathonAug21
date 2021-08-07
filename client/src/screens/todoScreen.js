@@ -87,6 +87,7 @@ export default function TodoScreen() {
 								})}
 						</div>
 					)}
+
 					{!items.length && (
 						<div>
 							<p className="text-center">No Todo's</p>

@@ -18,6 +18,9 @@ h1 {
 	align-items: center;
 	justify-content: center;
 }
+.header:hover {
+	background-color: red;
+}
 .header-logo {
 	position: absolute;
 	left: 0;
